@@ -28,23 +28,23 @@ exports.userslist = (req, res) => {
 // API for Update user info
   exports.UpdateUser = async(req, res) => {
 
-    var data= User.findOne({where:{id: req.params.id}})
-    if(data){
+    var data = User.findOne({ where: { id: req.params.id } })
+    if (data) {
 
-			User.update({
+      User.update({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         email: req.body.email,
         mobileno: req.body.mobileno,
         address: req.body.address,
-      },{ where: { id: req.params.id } })
-      .then(async(user) => {
+      }, { where: { id: req.params.id } })
+        .then(async (user) => {
 
-        res.status(200).json({
-					message: 'Updated Successfully.',
-    		});
+          res.status(200).json({
+            message: 'Updated Successfully.',
+          });
 
-      })
+        })
     }
   }
   
